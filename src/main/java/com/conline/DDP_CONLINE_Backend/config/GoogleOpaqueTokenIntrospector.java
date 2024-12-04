@@ -28,11 +28,11 @@ public class GoogleOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
 
         Map<String, Object> attributes = new HashMap<>();
         assert userInfo != null;
-        attributes.put("google_id", userInfo.sub()); // ID de Google
-        attributes.put("email", userInfo.email()); // Email del usuario
-        attributes.put("first_name", userInfo.given_name()); // Primer nombre
-        attributes.put("last_name", userInfo.family_name()); // Apellido
-        attributes.put("profile_picture_url", userInfo.picture()); // URL de la foto de perfil
+        attributes.put("google_id", userInfo.sub());
+        attributes.put("email", userInfo.email());
+        attributes.put("first_name", userInfo.given_name());
+        attributes.put("last_name", userInfo.family_name());
+        attributes.put("profile_picture_url", userInfo.picture());
 
         return new OAuth2IntrospectionAuthenticatedPrincipal(userInfo.email(), attributes, null);
     }
